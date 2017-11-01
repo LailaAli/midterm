@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:900');
 
 /* containers */
-
 body {
 	min-width: 320px;
 	max-width: 680px;
@@ -30,10 +29,29 @@ body {
 	margin: 110px 0px 0px 0px;
 }
 
+/* budget bar elements */
 meter {
 	width: 100%;
 }
 
+/* categories */
+.entertainment {
+	background-color: #45eac6;
+}
+
+.food {
+	background-color: #feb037;
+}
+
+.clothing {
+	background-color: #0cc675;
+}
+
+.bills {
+	background-color: #167ee6;
+}
+
+/* Purchase Box */
 .new-purchase {
 	display: flex;
 	justify-content: center;
@@ -43,13 +61,41 @@ meter {
 	background-color: red;
 	z-index: 200;
 }
+
 	.purchase-inputs {
 		display: flex;
 		flex-direction: column;
-		align-content: space-between;
 		width: 100%;
-		
 	}
+
+	form input, select {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.form-btn {
+		display: flex;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+/* Your Purchases */
+
+.purchases {
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: green;
+}
+
+	#purchases-detail {
+		display: flex;
+		flex-direction: row;
+	}
+
+
 
 
 /* media queries */

@@ -11,20 +11,20 @@
 <content>
 	<div class="container">
 		<div class="budget-bar">
-			<p>Remaining Budget: <span id="remaining"></span></p>
+			<p>Remaining Budget: <span id="remaining">100</span></p>
 			<p>Total Budget: <span id="total"></span></p>
 			<meter id="budget" min="0" max="500" low="99" value="375"></meter>
 		</div>
 		<div class="categories">
-			<div class="category entertainment">Entertainment</div>
-			<div class="category food">Food</div>
-			<div class="category clothing">Clothing</div>
-			<div class="category bills">Bills</div>
+			<div class="category entertainment"><p>Entertainment</p><p class="category-amount" id="entertainment-spend"></p></div>
+			<div class="category food"><p>Food</p><p class="category-amount" id="food-spend"></p></div>
+			<div class="category clothing"><p>Clothing</p><p class="category-amount" id="clothing-spend"></p></div>
+			<div class="category bills"><p>Bills</p><p class="category-amount" id="bills-spend"></p></div>
 		</div>
 		<div class="new-purchase">
 			<form class="purchase-inputs">
 				<input id="purchase-new" type="text" placeholder="Enter New Purchase" value=""/>
-				<input id="purchase-amount" type="number" placeholder="Amount" value=""/>
+				$ <input id="purchase-dollar" type="number" min="0.01" step="0.01" max="2500" value="" />
 				<select id="purchase-category" type="" placeholder="Category" value="">
 					<option id="option-select" value="select">Select</option>
 					<option value="food">Food</option>
