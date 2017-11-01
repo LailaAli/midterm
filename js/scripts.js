@@ -19,7 +19,7 @@ $(function() {
 // 	<option value="bills">Bills</option>
 // 	<option value="clothing">Clothing</option>
 // 	<option value="entertainment">Entertainment</option>
-// 	<button id="save" class="form-btn" type="button">Save</button>
+// 	<button id="purchase-save" class="form-btn" type="button">Save</button>
 
 // check form values, they shouldn't be empty or select
 
@@ -27,12 +27,16 @@ $(function() {
 // set new purchase window to display none
 
 
-// update category levels
+//add/populate 'Your Purchases Box' (.purchases-detail) with .purchase-new + .purchase-amount + .purchase-date for each new purchase.
+
+    //color code each box with category color.
+
+
+// update category levels with dollar amounts
 // id="entertainment-spend"
 // id="food-spend"
 // id="clothing-spend"
 // id="bills-spend"
-
 
 
 // if budget val(0)
