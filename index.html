@@ -9,13 +9,23 @@
 </head>
 <body>
 <content>
-	<div class="container">
-		
-	<div class="purchase">
-		<form>
-			
-			<button id="save" class="form-btn" type="button">Save</button>
-		</form>
+	<div class="formPopout">
+		<div class="formContainer">
+			<form class="purchaseDetails">
+				<input id="purchaseNew" type="text" placeholder="Enter New Purchase" value=""/>
+				<input id="purchaseAmount" type="number" placeholder="Amount" value=""/>
+				<select id="purchaseCategory" type="" placeholder="Category" value="">
+					<option id="optionSelect" value="select">Select</option>
+					<option value="food">Food</option>
+					<option value="bills">Bills</option>
+					<option value="clothing">Clothing</option>
+					<option value="entertainment">Entertainment</option>
+				</select>
+				<div id="btnSave">
+				<button id="save" class="form-btn" type="button">Save</button>
+				</div>
+			</form>
+		</div>	
 	</div>
 </content>
 <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
