@@ -9,8 +9,19 @@
 </head>
 <body>
 <content>
-	<div class="formPopout">
-		<div class="formContainer">
+	<div class="container">
+		<div class="budget-bar">
+			<p>Remaining Budget: <span id="remaining"></span></p>
+			<p>Total Budget: <span id="total"></span></p>
+			<meter id="budget" min="0" max="500" low="99" value="375"></meter>
+		</div>
+		<div class="categories">
+			<div class="category entertainment">Entertainment</div>
+			<div class="category food">Food</div>
+			<div class="category clothing">Clothing</div>
+			<div class="category bills">Bills</div>
+		</div>
+		<div class="new-purchase">
 			<form class="purchaseDetails">
 				<input id="purchaseNew" type="text" placeholder="Enter New Purchase" value=""/>
 				<input id="purchaseAmount" type="number" placeholder="Amount" value=""/>
@@ -22,11 +33,14 @@
 					<option value="entertainment">Entertainment</option>
 				</select>
 				<div id="btnSave">
-				<button id="save" class="form-btn" type="button">Save</button>
+					<button id="save" class="form-btn" type="button">Save</button>
 				</div>
 			</form>
-		</div>	
-	</div>
+		</div>
+		<div class="purchases">
+			
+		</div>
+	</div>	
 </content>
 <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
 <script src="js/scripts.js"></script>
