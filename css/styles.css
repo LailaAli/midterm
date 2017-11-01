@@ -2,10 +2,36 @@
 @import url('https://fonts.googleapis.com/css?family=Erica+One|Roboto+Mono');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:900');
 
+/* containers */
+
 body {
 	min-width: 320px;
 	max-width: 680px;
 	margin: 0px auto;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.budget-bar {
+	position: fixed;
+	width: 100%;
+	background-color: #fff;
+	z-index: 100;
+}
+
+.categories {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-around;
+	margin: 110px 0px 0px 0px;
+}
+
+meter {
+	width: 100%;
 }
 
 

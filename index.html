@@ -10,13 +10,27 @@
 <body>
 <content>
 	<div class="container">
-		
-	<div class="purchase">
-		<form>
+		<div class="budget-bar">
+			<p>Remaining Budget: <span id="remaining"></span></p>
+			<p>Total Budget: <span id="total"></span></p>
+			<meter id="budget" min="0" max="500" low="99" value="375"></meter>
+		</div>
+		<div class="categories">
+			<div class="category entertainment">Entertainment</div>
+			<div class="category food">Food</div>
+			<div class="category clothing">Clothing</div>
+			<div class="category bills">Bills</div>
+		</div>
+		<div class="new-purchase">
+			<form>
+
+				<button id="save" class="form-btn" type="button">Save</button>
+			</form>
+		</div>
+		<div class="purchases">
 			
-			<button id="save" class="form-btn" type="button">Save</button>
-		</form>
-	</div>
+		</div>
+	</div>	
 </content>
 <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
 <script src="js/scripts.js"></script>
