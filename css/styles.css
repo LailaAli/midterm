@@ -1,0 +1,27 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css?family=Erica+One|Roboto+Mono');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:900');
+
+body {
+	min-width: 320px;
+	max-width: 680px;
+	margin: 0px auto;
+}
+
+
+/* media queries */
+@media only screen and (min-width: 480px) {
+	/* styles for tablet */
+}
+
+@media only screen and (min-width: 768px) {
+	/* styles for notebooks */
+}
+
+@media only screen and (min-width: 992px) {
+	/* styles for desktop */
+}
+
+@media only screen and (min-width: 1200px) {
+	/* styles for large desktop */
+}
