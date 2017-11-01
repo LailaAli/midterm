@@ -1,7 +1,13 @@
 //$(function() {
 
+let categories = [];
+let budget = {
+	total: 0,
+	remaining: 0
+};
+
 const initialPrompt = function() {
-	let budgetPrompt = prompt("Please enter your weekly budget amount");
+	let budgetPrompt = prompt("Please enter your weekly budget amount.");
 	let budgetAmount = parseInt(budgetPrompt);
 	if (isNaN(budgetAmount)) {
 		alert("You must enter a number.");
@@ -11,11 +17,24 @@ const initialPrompt = function() {
 };
 
 const initializeBudget = function(budgetAmount) {
+	budget.total = budgetAmount;
+	budget.remaining = budgetAmount;
 	$("#total").text(budgetAmount);
 	$("#remaining").text(budgetAmount);
-	$("#budget").val(budgetAmount);
-	$("#budget").attr("max", budgetAmount);
-	$("#budget").attr("low", (budgetAmount / 10));
+	$("#budget")
+		.val(budgetAmount)
+		.attr("max", budgetAmount)
+		.attr("low", (budgetAmount / 10)
+	);
+	return budget;
+};
+
+const updateScreen = function(budget, categories) {
+	$("#remaining").text(budget.remaining);
+	$("#budget").val(budget.remaining);
+	if (budget.remaining <= 0) {
+		alert("You've spent your budget, no more buying!!");
+	} 
 };
 
 // grab "add new" button 
@@ -51,9 +70,8 @@ const initializeBudget = function(budgetAmount) {
 // id="clothing-spend"
 // id="bills-spend"
 
+	
 
-// if budget val(0)
-// alert("You've spent your budget, no more buying!!");
 
 
 window.setTimeout(initialPrompt, 500);
