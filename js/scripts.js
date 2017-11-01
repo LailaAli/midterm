@@ -1,6 +1,5 @@
 //$(function() {
 
-// prompt user for budget amount
 const initialPrompt = function() {
 	let budgetPrompt = prompt("Please enter your weekly budget amount");
 	let budgetAmount = parseInt(budgetPrompt);
@@ -12,29 +11,12 @@ const initialPrompt = function() {
 };
 
 const initializeBudget = function(budgetAmount) {
-	alert(budgetAmount);
 	$("#total").text(budgetAmount);
 	$("#remaining").text(budgetAmount);
-	let meter = $("#budget");
-
-	// budgetAmount = parseInt(budgetPrompt);
-	// if (budgetAmount === NaN) {
-	// 	alert("You must enter a number.");
-	// 	initialPrompt();
-	// }
-	// return budgetAmount;
-	// call initialize function and pass budget amount
+	$("#budget").val(budgetAmount);
+	$("#budget").attr("max", budgetAmount);
+	$("#budget").attr("low", (budgetAmount / 10));
 };
-// initialize budget amount variable
-// set these things to budget amount
-// <span id="total"></span>
-// <meter max="500"
-// value="375"
-
-// grab element meter id="budget" 
-// set val to current budget level
-
-
 
 // grab "add new" button 
 // .on("click" ----pop up new purchase window---)
