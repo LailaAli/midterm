@@ -1,9 +1,50 @@
+<<<<<<< HEAD
 // $(function() {
 
 // prompt user for budget amount
 
 // grab element meter id="budget" 
 // set val to current budget level
+=======
+//$(function() {
+
+let categories = [];
+let budget = {
+	total: 0,
+	remaining: 0
+};
+
+const initialPrompt = function() {
+	let budgetPrompt = prompt("Please enter your weekly budget amount.");
+	let budgetAmount = parseInt(budgetPrompt);
+	if (isNaN(budgetAmount)) {
+		alert("You must enter a number.");
+		initialPrompt();
+	}
+	initializeBudget(budgetAmount);
+};
+
+const initializeBudget = function(budgetAmount) {
+	budget.total = budgetAmount;
+	budget.remaining = budgetAmount;
+	$("#total").text(budgetAmount);
+	$("#remaining").text(budgetAmount);
+	$("#budget")
+		.val(budgetAmount)
+		.attr("max", budgetAmount)
+		.attr("low", (budgetAmount / 10)
+	);
+	return budget;
+};
+
+const updateScreen = function(budget, categories) {
+	$("#remaining").text(budget.remaining);
+	$("#budget").val(budget.remaining);
+	if (budget.remaining <= 0) {
+		alert("You've spent your budget, no more buying!!");
+	} 
+};
+>>>>>>> e7e3a1aabc463efdf5db5d5f4e0b9ebac0a6362a
 
 // grab "add new" button 
 // .on("click" ----pop up new purchase window---)
@@ -60,11 +101,13 @@ function updateCategory(category, amount){
 // id="clothing-spend"
 // id="bills-spend"
 
-
-// if budget val(0)
-// alert("You've spent your budget, no more buying!!");
+	
 
 
 
-
+<<<<<<< HEAD
 // }); // wrapper
+=======
+window.setTimeout(initialPrompt, 500);
+//}); // wrapper
+>>>>>>> e7e3a1aabc463efdf5db5d5f4e0b9ebac0a6362a
