@@ -13,6 +13,7 @@ $(function() {
 // get value from all form elements
 // id="purchase-new" value=""
 // id="purchase-amount" value=""
+<<<<<<< Updated upstream
 // id="purchase-category" value="">
 // 	<option id="optionSelect" value="select">Select</option>
 // 	<option value="food">Food</option>
@@ -20,6 +21,15 @@ $(function() {
 // 	<option value="clothing">Clothing</option>
 // 	<option value="entertainment">Entertainment</option>
 // 	<button id="purchase-save" class="form-btn" type="button">Save</button>
+=======
+// id="purchase-category" value=""
+// 	value="food">Food
+// 	value="bills">Bills
+// 	value="clothing">Clothing
+// 	value="entertainment">Entertainment
+// id="save" .on("click")
+// class="form-btn" type="button">Save</button>
+>>>>>>> Stashed changes
 
 // check form values, they shouldn't be empty or select
 
