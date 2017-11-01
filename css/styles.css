@@ -34,6 +34,23 @@ meter {
 	width: 100%;
 }
 
+.new-purchase {
+	display: flex;
+	justify-content: center;
+	padding: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: red;
+	z-index: 200;
+}
+	.purchase-inputs {
+		display: flex;
+		flex-direction: column;
+		align-content: space-between;
+		width: 100%;
+		
+	}
+
 
 /* media queries */
 @media only screen and (min-width: 480px) {
