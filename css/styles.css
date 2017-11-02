@@ -8,6 +8,7 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Roboto Mono", Helvetica, Arial, sans-serif;
+	text-align: center;
 }
 
 input, select, button {
@@ -29,8 +30,13 @@ body {
 .budget-bar {
 	position: fixed;
 	width: 100%;
+	height: 85px;
 	background-color: #fff;
 	z-index: 100;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	/*add this at screen position 85px or something box-shadow: 0px 0px 30px rgba(0, 0, 0, .5);*/
 }
 
 .categories {
@@ -39,10 +45,14 @@ body {
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: space-evenly;
-	margin: 110px 0px 0px 0px;
+	margin: 85px 0px 0px 0px;
 }
 
 /* budget bar elements */
+.budget-bar p {
+	margin: 30px 0px 10px 0px;
+}
+
 meter {
 	width: 100%;
 }
@@ -95,15 +105,27 @@ meter {
 	border-radius: 5px;
 }
 
-/* purchase box */
-
 .new-purchase {
-	display: flex;
+	display: none;
+	position: absolute;
+	top: 95px;
+	left: 50%;
+	margin-left: -160px;
+	width: 260px;
+	/*width: calc(100% - 60px);*/
+	/*max-width: 400px;*/
+	/*min-width: 260px;*/
 	justify-content: center;
-	padding: 15px;
-	background-color: red;
+	padding: 15px 30px;
+	background-color: #333;
+	border-radius: 5px;
+	box-shadow: 0px 0px 30px rgba(0, 0, 0, .5);
 	z-index: 200;
 	display: none;
+}
+
+.new-purchase h3 {
+	color: #fff;
 }
 
 .purchase-inputs {
@@ -118,26 +140,38 @@ form input, select {
 }
 
 .form-btn {
-	display: flex;
-	width: 100%;
-	margin-top: 10px;
+	justify-content: center;
+	margin: 10px 0px 10px 0px;
+	height: 50px;
+	background-color: #4bbf6b;
+	color: #333;
+	border: none;
+	border-radius: 5px;
 }
 
-/* Your Purchases */
-
+/* your purchases */
 .purchases {
 	display: flex;
 	flex-direction: column;
-	padding: 15px;
-	background-color: green;
+	padding: 0px 10px;
 }
 
 .purchase-detail {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin: 5px 0px;
+	border-radius: 5px;
+	height: 30px;
 }
 
+.purchase-detail p {
+	display: flex;
+	margin: 0px 0px;
+
+}
 
 
 
