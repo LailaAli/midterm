@@ -68,26 +68,36 @@ const createNewPurchase = function() {
  		amount: purchaseAmount,
  		category: purchaseCategory
 	};
-	findAndAddToCategory(newPurchase);
-	updateBudget(newPurchase);
-	addPurchaseToArray(newPurchase);
+	findUpdateCategory(newPurchase);
 };	
 
-const findAndAddToCategory = function(purchase) {
+const findUpdateCategory = function(newPurchase) {
 	let category = categories.find(function(category) {
-		return category.id === purchase.category;
+		return category.id === newPurchase.category;
 	});
-	category.spendAmount += purchase.amount;
+	category.spendAmount += newPurchase.amount;
+	updateBudget(newPurchase);
 };
 
-// deduct purchase amount from total budget
-const updateBudget = function(purchase) {
-	budget.remaining -= purchase.amount;
+const updateBudget = function(newPurchase) {
+	budget.remaining -= newPurchase.amount;
+	addPurchaseToArray(newPurchase);
 };
-
 
 const addPurchaseToArray = function(newPurchase) {
 	purchases.push(newPurchase);
+	updatePurchases(newPurchase);
+};
+
+const updatePurchases = function(newPurchase) {
+	$(".purchases").append(
+		"<div class=\"purchase-detail category" + newPurchase.category + "\">"
+		+"<p class=\"purchase-name\">" + newPurchase.item + "</p>"
+		+"<p class=\"purchase-date\">" + newPurchase.date + "</p>"
+		+"<p class=\"purchase-amount\">" + newPurchase.amount + "</p>"
+		+ "</div>"
+	);
+	updateScreen();
 };
 
 const updateScreen = function() {
@@ -101,21 +111,6 @@ const updateScreen = function() {
 	$("#clothing-spend").text(categories[2].spendAmount);
 	$("#bills-spend").text(categories[3].spendAmount);
 };
-
-////////////////////////////////////////////////////////////////////
-// update screen with purchase objects
-purchases.forEach(function(element) {
-	console.log(element);
-	$(".purchases").append("Some appended text.");
-// <div class="purchases-detail">
-// 		<p id="purchases-name">Purchase Name</p><p id="purchases-date">Date</p><p id="purchases-amount">Amount</p>
-// </div>
-
-});
-
-////////////////////////////////////////////////////////////
-
-//color code each box with category color.
 
 window.setTimeout(initialPrompt, 500);
 //}); // wrapper
