@@ -148,6 +148,33 @@ form input, select {
 	border-radius: 5px;
 }
 
+#purchase-cancel {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:8px;
+    right:8px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#f1f1f1;
+}
+ 
+#purchase-cancel:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}
+
 /* your purchases */
 .purchases {
 	display: flex;
