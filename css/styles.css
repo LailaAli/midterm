@@ -69,28 +69,26 @@ meter {
 	display: flex;
 	justify-content: center;
 	padding: 15px;
-	margin-top: 10px;
-	margin-bottom: 10px;
 	background-color: red;
 	z-index: 200;
 }
 
-	.purchase-inputs {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
+.purchase-inputs {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
 
-	form input, select {
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
+form input, select {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
-	.form-btn {
-		display: flex;
-		width: 100%;
-		margin-top: 10px;
-	}
+.form-btn {
+	display: flex;
+	width: 100%;
+	margin-top: 10px;
+}
 
 /* Your Purchases */
 
@@ -98,15 +96,13 @@ meter {
 	display: flex;
 	flex-direction: column;
 	padding: 15px;
-	margin-top: 10px;
-	margin-bottom: 10px;
 	background-color: green;
 }
 
-	#purchases-detail {
-		display: flex;
-		flex-direction: row;
-	}
+#purchases-detail {
+	display: flex;
+	flex-direction: row;
+}
 
 
 

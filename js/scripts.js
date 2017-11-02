@@ -9,23 +9,13 @@ let budget = {
 
 const initializeCategories = function() {
 	categories.push(
-		{name: "entertainment", spendAmount: 0},	// 0
-		{name: "food", spendAmount: 0},				// 1
-		{name: "clothing", spendAmount: 0},			// 2
-		{name: "bills", spendAmount: 0}				// 3
+		{id: 1, name: "entertainment", spendAmount: 0},
+		{id: 2, name: "food", spendAmount: 0},
+		{id: 3, name: "clothing", spendAmount: 0},
+		{id: 4, name: "bills", spendAmount: 0}
 	);
 };
-
 initializeCategories();
-
-const addPurchaseToArray = function(item, date, amount, category) {
-	purchases.push({
-		item: item,
-		date: date,
-		amount: amount,
-		category: category
-	});
-};
 
 const initialPrompt = function() {
 	let budgetPrompt = prompt("Please enter your weekly budget amount.");
@@ -34,7 +24,7 @@ const initialPrompt = function() {
 		alert("You must enter a number.");
 		initialPrompt();
 	}
-	// initializeBudget(budgetAmount);
+	initializeBudget(budgetAmount);
 };
 
 const initializeBudget = function(budgetAmount) {
@@ -50,7 +40,46 @@ const initializeBudget = function(budgetAmount) {
 	return budget;
 };
 
-const updateScreen = function(budget, categories) {
+////////////////////////////////////////////////////////////
+// grab "add new" button 
+// .on("click" ----pop up new purchase window---)
+// class="new-purchase" set to display block
+
+$("#purchase-save").on("click", function() {
+			// check form values, they shouldn't be empty or select
+		if ( "#purchase-inputs".val === ""){
+			prompt("Fill in all fields");
+		};
+	createNewPurchase();
+// set new purchase window to display none
+});
+////////////////////////////////////////////////////////////
+
+const createNewPurchase = function() {
+	let purchaseNew = $("#purchase-new").val();
+	let purchaseDate = $("#purchase-date").val();
+	let getpurchaseAmount = $("#purchase-amount").val();
+	let purchaseAmount = parseInt(getpurchaseAmount);
+	let getPurchaseCategory = $("#purchase-category").val();
+	let purchaseCategory = parseInt(getPurchaseCategory);
+	findAndAddToCategory(newPurchase);
+	addPurchaseToArray(newPurchase);
+};	
+
+const findAndAddToCategory = function(purchase) {
+	let category = categories.find(function(category) {
+		return category.id === purchase.category;
+	});
+	category.spendAmount += purchase.amount;
+};
+
+// deduct purchase amount from total budget
+
+const addPurchaseToArray = function(newPurchase) {
+	purchases.push(newPurchase);
+};
+
+const updateScreen = function() {
 	$("#remaining").text(budget.remaining);
 	$("#budget").val(budget.remaining);
 	if (budget.remaining <= 0) {
@@ -62,75 +91,20 @@ const updateScreen = function(budget, categories) {
 	$("#bills-spend").text(categories[3].spendAmount);
 };
 
-// grab "add new" button 
-// .on("click" ----pop up new purchase window---)
-// class="new-purchase" set to display block
+////////////////////////////////////////////////////////////////////
+// update screen with purchase objects
+purchases.forEach(function(element) {
+	console.log(element);
+	$(".purchases").append("Some appended text.");
+// <div class="purchases-detail">
+// 		<p id="purchases-name">Purchase Name</p><p id="purchases-date">Date</p><p id="purchases-amount">Amount</p>
+// </div>
 
-// get value from all form elements
-function newPurchase (){
-	let purchaseNew = $("#purchase-new").val();
-	let purchaseDate = $("#purchase-date").val();
-	let getpurchaseAmount = $("#purchase-amount").val();
-	let purchaseAmount = parseInt(getpurchaseAmount);
-	let getPurchaseCategory = $("#purchase-category").val();
-	let purchaseCategory = parseInt(getPurchaseCategory);
-};	
-
-//////// update categories using .find/.filter
-
-function updateCategory(category, amount){
-   entertainmentSpend = entertainmentSpend + amount; 
-   foodSpend = foodSpend + amount; 
-   clothingSpend = clothingSpend + amount; 
-   billsSpend = billsSpend + amount; 
-};
-
-// function updateCategory(category, amount){
-//    entertainmentSpend = entertainmentSpend + amount; 
-   
-// };
-
-// const findMatching = function(categories, cat) {
-// 	if (cat === "food") {
-// 		return categories.name === "food";
-// 	}
-// };
-// console.log(categories.find(findMatching(categories, cat)));
-
-///////////////////////////////////////////////////////////////////////////////////
-
-// save button will push data to purchases array
-$("#purchase-save").on("click", function(e) {	//Button saves data to a var
-	addPurchaseToArray(item, date, amount, category);
 });
 
-// 	<option id="option-select" value="select">Select</option>
-// 	<option value="food">Food</option>
-// 	<option value="bills">Bills</option>
-// 	<option value="clothing">Clothing</option>
-// 	<option value="entertainment">Entertainment</option>
-// 	<button id="purchase-save" class="form-btn" type="button">Save</button>
+////////////////////////////////////////////////////////////
 
-
-
-// check form values, they shouldn't be empty or select
-if ( "#purchase-inputs".val === ""){
-	prompt("Fill in all fields");
-};
-
-
-
-// set new purchase window to display none
-
-//add/populate 'Your Purchases Box' (.purchases-detail) with .purchase-new + .purchase-amount + .purchase-date for each new purchase.
-
-    //color code each box with category color.
-
-// update category levels with dollar amounts
-// id="entertainment-spend"
-// id="food-spend"
-// id="clothing-spend"
-// id="bills-spend"
+//color code each box with category color.
 
 window.setTimeout(initialPrompt, 500);
 //}); // wrapper
