@@ -1,180 +1,127 @@
-//$(function() {
+$(function() {
 
-
-let purchases = [];
-let categories = [];
-let budget = {
-	total: 0,
-	remaining: 0
-};
-
-const initializeCategories = function() {
-	categories.push(
-		{id: 1, name: "entertainment", spendAmount: 0},
-		{id: 2, name: "food", spendAmount: 0},
-		{id: 3, name: "clothing", spendAmount: 0},
-		{id: 4, name: "bills", spendAmount: 0}
-	);
-};
-initializeCategories();
-
-const initialPrompt = function() {
-	let budgetPrompt = prompt("Please enter your weekly budget amount.");
-	let budgetAmount = parseInt(budgetPrompt);
-	if (isNaN(budgetAmount)) {
-		alert("You must enter a number.");
-		initialPrompt();
-	}
-	initializeBudget(budgetAmount);
-};
-
-const initializeBudget = function(budgetAmount) {
-	budget.total = budgetAmount;
-	budget.remaining = budgetAmount;
-	$("#total").text(budgetAmount);
-	$("#remaining").text(budgetAmount);
-	$("#budget")
-		.val(budgetAmount)
-		.attr("max", budgetAmount)
-		.attr("low", (budgetAmount / 5)
-	);
-	return budget;
-};
-
-////////////////////////////////////////////////////////////
-// grab "add new" button 
-// .on("click" ----pop up new purchase window---)
-$("button#purchase-form-trigger").on("click", function(e){
-	$(".new-purchase").fadeIn(800);
-});
-
-
-
-//Form Save button validates inputs, hides form, runs next function.
-
-
-
-// check form values, they shouldn't be empty or select
-$('#purchase-save').on("click", function(){
-	if($('#purchase-name').val() === '' || $('#purchase-date').val() === '' || $('#purchase-amount').val() === '' || $('#purchase-category').val() === ''){
-		alert('Input can not be left blank');
-		return;
-	}
-		createNewPurchase();
-		$(".new-purchase").fadeOut(800);
-		resetForm();
-});
-
-$("#purchase-cancel").on("click", function(){
-	$(".new-purchase").fadeOut(800);
-	resetForm();
-});
-
-function resetForm (){
-	$("#purchase-name").val("");
-	$("#purchase-date").val("");
-	$("#purchase-amount").val("");
-	$("#purchase-category").val("");
-}
-
-
-	// $("#purchase-save").on("click", function(e){
-	// 	$(".new-purchase").fadeOut(800);
-	// });
-	
-
-
-
-
-
-	
-// set new purchase window to display none
-
-////////////////////////////////////////////////////////////
-
-const createNewPurchase = function() {
-	let purchaseName = $("#purchase-name").val();
-	let purchaseDate = $("#purchase-date").val();
-	let getPurchaseAmount = $("#purchase-amount").val();
-	let purchaseAmount = parseInt(getPurchaseAmount);
-	let getPurchaseCategory = $("#purchase-category").val();
-	let purchaseCategory = parseInt(getPurchaseCategory);
-	let newPurchase = {
- 		item: purchaseName,
- 		date: purchaseDate,
- 		amount: purchaseAmount,
- 		category: purchaseCategory
+	let purchases = [];
+	let categories = [];
+	let budget = {
+		total: 0,
+		remaining: 0
 	};
-	findUpdateCategory(newPurchase);
-};	
 
-const findUpdateCategory = function(newPurchase) {
-	let category = categories.find(function(category) {
-		return category.id === newPurchase.category;
+	const initializeCategories = function() {
+		categories.push(
+			{id: 1, name: "entertainment", spendAmount: 0},
+			{id: 2, name: "food", spendAmount: 0},
+			{id: 3, name: "clothing", spendAmount: 0},
+			{id: 4, name: "bills", spendAmount: 0}
+		);
+	};
+	initializeCategories();
+
+	const initialPrompt = function() {
+		let budgetPrompt = prompt("Please enter your weekly budget amount.");
+		let budgetAmount = parseInt(budgetPrompt);
+		if (isNaN(budgetAmount)) {
+			alert("You must enter a number.");
+			initialPrompt();
+		}
+		initializeBudget(budgetAmount);
+	};
+
+	const initializeBudget = function(budgetAmount) {
+		budget.total = budgetAmount;
+		budget.remaining = budgetAmount;
+		$("#total").text(budgetAmount);
+		$("#remaining").text(budgetAmount);
+		$("#budget")
+			.val(budgetAmount)
+			.attr("max", budgetAmount)
+			.attr("low", (budgetAmount / 5)
+		);
+		return budget;
+	};
+
+	$("button#purchase-form-trigger").on("click", function(e){
+		$(".new-purchase").fadeIn(500);
 	});
-	category.spendAmount += newPurchase.amount;
-	updateBudget(newPurchase);
-};
 
-const updateBudget = function(newPurchase) {
-	budget.remaining -= newPurchase.amount;
-	addPurchaseToArray(newPurchase);
-};
+	$('#purchase-save').on("click", function(){
+		if($('#purchase-name').val() === '' || $('#purchase-date').val() === '' || $('#purchase-amount').val() === '' || $('#purchase-category').val() === ''){
+			alert('Input can not be left blank.');
+			return;
+		}
+			createNewPurchase();
+			$(".new-purchase").fadeOut(500);
+			resetForm();
+	});
 
-const addPurchaseToArray = function(newPurchase) {
-	purchases.push(newPurchase);
-	updatePurchases(newPurchase);
-};
+	$("#purchase-cancel").on("click", function(){
+		$(".new-purchase").fadeOut(500);
+		resetForm();
+	});
 
-const updatePurchases = function(newPurchase) {
-	$(".purchases").append(
-		"<div class=\"purchase-detail category" + newPurchase.category + "\">"
-		+"<p class=\"purchase-name\">" + newPurchase.item + "</p>"
-		+"<p class=\"purchase-date\">" + newPurchase.date + "</p>"
-		+"<p class=\"purchase-amount\">$" + newPurchase.amount + "</p>"
-		+ "</div>"
-	);
-	updateScreen();
-};
-
-const updateScreen = function() {
-	$("#remaining").text(budget.remaining);
-	$("#budget").val(budget.remaining);
-	if (budget.remaining <= 0) {
-		alert("You've spent your budget, no more buying!!");
-	} 
-	$("#entertainment-spend").text(categories[0].spendAmount);
-	$("#food-spend").text(categories[1].spendAmount);
-	$("#clothing-spend").text(categories[2].spendAmount);
-	$("#bills-spend").text(categories[3].spendAmount);
-};
-
-///////////////////////////////////////////////////////////
-// TEST DATA
-initializeBudget(500);
-let testPurchase = {
- 		item: "purchaseName",
- 		date: "purchaseDate",
- 		amount: 30,
- 		category: 2
+	const resetForm = function resetForm (){
+		$("#purchase-name").val("");
+		$("#purchase-date").val("");
+		$("#purchase-amount").val("");
+		$("#purchase-category").val("");
 	};
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
-findUpdateCategory(testPurchase);
 
+	const createNewPurchase = function() {
+		let purchaseName = $("#purchase-name").val();
+		let purchaseDate = $("#purchase-date").val();
+		let getPurchaseAmount = $("#purchase-amount").val();
+		let purchaseAmount = parseInt(getPurchaseAmount);
+		let getPurchaseCategory = $("#purchase-category").val();
+		let purchaseCategory = parseInt(getPurchaseCategory);
+		let newPurchase = {
+	 		item: purchaseName,
+	 		date: purchaseDate,
+	 		amount: purchaseAmount,
+	 		category: purchaseCategory
+		};
+		findUpdateCategory(newPurchase);
+	};	
 
-///////////////////////////////////////////////////////////
+	const findUpdateCategory = function(newPurchase) {
+		let category = categories.find(function(category) {
+			return category.id === newPurchase.category;
+		});
+		category.spendAmount += newPurchase.amount;
+		updateBudget(newPurchase);
+	};
 
-//window.setTimeout(initialPrompt, 500);
-//}); // wrapper
+	const updateBudget = function(newPurchase) {
+		budget.remaining -= newPurchase.amount;
+		addPurchaseToArray(newPurchase);
+	};
+
+	const addPurchaseToArray = function(newPurchase) {
+		purchases.push(newPurchase);
+		updatePurchases(newPurchase);
+	};
+
+	const updatePurchases = function(newPurchase) {
+		$(".purchases").append(
+			"<div class=\"purchase-detail category" + newPurchase.category + "\">"
+			+"<p class=\"purchase-name\">" + newPurchase.item + "</p>"
+			+"<p class=\"purchase-date\">" + newPurchase.date + "</p>"
+			+"<p class=\"purchase-amount\">$" + newPurchase.amount + "</p>"
+			+ "</div>"
+		);
+		updateScreen();
+	};
+
+	const updateScreen = function() {
+		$("#remaining").text(budget.remaining);
+		$("#budget").val(budget.remaining);
+		if (budget.remaining <= 0) {
+			alert("You've spent your budget, no more buying!!");
+		} 
+		$("#entertainment-spend").text(categories[0].spendAmount);
+		$("#food-spend").text(categories[1].spendAmount);
+		$("#clothing-spend").text(categories[2].spendAmount);
+		$("#bills-spend").text(categories[3].spendAmount);
+	};
+
+	window.setTimeout(initialPrompt, 500);
+}); // wrapper
