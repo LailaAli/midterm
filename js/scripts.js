@@ -1,4 +1,6 @@
 //$(function() {
+//Cursor changes
+$('button').css( 'cursor', 'pointer' );
 
 let purchases = [];
 let categories = [];
@@ -43,16 +45,39 @@ const initializeBudget = function(budgetAmount) {
 ////////////////////////////////////////////////////////////
 // grab "add new" button 
 // .on("click" ----pop up new purchase window---)
+$("button#purchase-form-trigger").on("click", function(e){
+	$(".new-purchase").fadeIn(800);
+});
+
+
 // class="new-purchase" set to display block
 
-$("#purchase-save").on("click", function() {
-			// check form values, they shouldn't be empty or select
-		if ( "#purchase-inputs".val === ""){
-			prompt("Fill in all fields");
-		};
-	createNewPurchase();
+//Form Save button validates inputs, hides form, runs next function.
+
+/* $("#purchase-save").on("click", function(e){
+	$(".new-purchase").fadeOut(800);
+}); */
+
+	// check form values, they shouldn't be empty or select
+	$('#purchase-save').click(function(){
+		if($('.purchase-inputs input').val() == ''){
+		   alert('Input can not be left blank');
+		}
+			createNewPurchase();
+	 });
+
+	// $("#purchase-save").on("click", function(e){
+	// 	$(".new-purchase").fadeOut(800);
+	// });
+	
+
+
+
+
+
+	
 // set new purchase window to display none
-});
+
 ////////////////////////////////////////////////////////////
 
 const createNewPurchase = function() {

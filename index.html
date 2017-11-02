@@ -24,10 +24,10 @@
 		<div id="purchase-trigger"><button id="purchase-form-trigger">Add New Purchase</button></div>
 		<div class="new-purchase">
 			<form class="purchase-inputs">
-				<input id="purchase-name" type="text" placeholder="Enter New Purchase" value=""/>
-				<input id="purchase-date" type="date" placeholder="Date" value=""/>
-				<input id="purchase-amount" type="number" placeholder="Purchase Amount $" min="0.01" step="0.01" max="2500" value="" />
-				<select id="purchase-category" type="" placeholder="Category" value="">
+				<input id="purchase-name" type="text" placeholder="Enter New Purchase" value="" required/>
+				<input id="purchase-date" type="date" placeholder="Date" value="" required/>
+				<input id="purchase-amount" type="number" placeholder="Purchase Amount $" min="0.01" step="0.01" max="2500" value="" required/>
+				<select id="purchase-category" type="" placeholder="Category" value="" required>
 					<option id="option-select" value="select">Select</option>
 					<option value="2">Food</option>
 					<option value="4">Bills</option>

@@ -61,6 +61,7 @@ meter {
 	border: none;
 	background-color: black;
 	color: white;
+	cursor: 
 
 }
 
@@ -71,6 +72,7 @@ meter {
 	padding: 15px;
 	background-color: red;
 	z-index: 200;
+	display: none;
 }
 
 .purchase-inputs {
