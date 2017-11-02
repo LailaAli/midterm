@@ -21,6 +21,7 @@
 			<div class="category clothing"><p>Clothing</p><p class="category-amount" id="clothing-spend">0</p></div>
 			<div class="category bills"><p>Bills</p><p class="category-amount" id="bills-spend">0</p></div>
 		</div>
+		<div id="purchase-trigger"><button id="purchase-form-trigger">Add New Purchase</button></div>
 		<div class="new-purchase">
 			<form class="purchase-inputs">
 				<input id="purchase-new" type="text" placeholder="Enter New Purchase" value=""/>
@@ -28,10 +29,10 @@
 				<input id="purchase-amount" type="number" placeholder="Purchase Amount $" min="0.01" step="0.01" max="2500" value="" />
 				<select id="purchase-category" type="" placeholder="Category" value="">
 					<option id="option-select" value="select">Select</option>
-					<option value="food">Food</option>
-					<option value="bills">Bills</option>
-					<option value="clothing">Clothing</option>
-					<option value="entertainment">Entertainment</option>
+					<option value="2">Food</option>
+					<option value="4">Bills</option>
+					<option value="3">Clothing</option>
+					<option value="1">Entertainment</option>
 				</select>
 				<div id="purchase-btn-save">
 					<button id="purchase-save" class="form-btn" type="button">Save</button>

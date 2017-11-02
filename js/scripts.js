@@ -15,6 +15,7 @@ const initializeCategories = function() {
 		{name: "bills", spendAmount: 0}				// 3
 	);
 };
+
 initializeCategories();
 
 const addPurchaseToArray = function(item, date, amount, category) {
@@ -33,7 +34,7 @@ const initialPrompt = function() {
 		alert("You must enter a number.");
 		initialPrompt();
 	}
-	initializeBudget(budgetAmount);
+	// initializeBudget(budgetAmount);
 };
 
 const initializeBudget = function(budgetAmount) {
@@ -69,10 +70,11 @@ const updateScreen = function(budget, categories) {
 function newPurchase (){
 	let purchaseNew = $("#purchase-new").val();
 	let purchaseDate = $("#purchase-date").val();
-	let purchaseAmount = $("#purchase-amount").val();
-	let purchaseCategory = $("#purchase-category").val();
-};
-
+	let getpurchaseAmount = $("#purchase-amount").val();
+	let purchaseAmount = parseInt(getpurchaseAmount);
+	let getPurchaseCategory = $("#purchase-category").val();
+	let purchaseCategory = parseInt(getPurchaseCategory);
+};	
 
 //////// update categories using .find/.filter
 
