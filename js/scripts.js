@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-// $(function() {
-
-// prompt user for budget amount
-
-// grab element meter id="budget" 
-// set val to current budget level
-=======
 //$(function() {
 
 let categories = [];
@@ -44,7 +36,6 @@ const updateScreen = function(budget, categories) {
 		alert("You've spent your budget, no more buying!!");
 	} 
 };
->>>>>>> e7e3a1aabc463efdf5db5d5f4e0b9ebac0a6362a
 
 // grab "add new" button 
 // .on("click" ----pop up new purchase window---)
@@ -56,9 +47,6 @@ let foodSpend = 0;
 let clothingSpend = 0;   
 let billsSpend = 0;   
 
-let categories = [];
-
-categories.push(name.entertainment, name.bills, name.food, name.clothing);
 
 
 
@@ -73,8 +61,14 @@ let purchaseCategory = $("#purchase-category").val(); // id="purchase-category" 
 // call 
 function updateCategory(category, amount){
    entertainmentSpend = entertainmentSpend + amount; 
-   entertainmentSpend = $("#entertainment-spend").text()
+   foodSpend = foodSpend + amount; 
+   clothingSpend = clothingSpend + amount; 
+   billsSpend = billsSpend + amount; 
 };
+
+$("#purchase-save").on("click", function(e) {	//Button saves data to a var
+	addPurchaseToArray;
+});
 
 // 	<option id="option-select" value="select">Select</option>
 // 	<option value="food">Food</option>
@@ -83,9 +77,10 @@ function updateCategory(category, amount){
 // 	<option value="entertainment">Entertainment</option>
 // 	<button id="purchase-save" class="form-btn" type="button">Save</button>
 
-
 // check form values, they shouldn't be empty or select
-
+if ( "#purchase-inputs".val === ""){
+	prompt("Fill in all fields");
+};
 
 // set new purchase window to display none
 
@@ -105,9 +100,5 @@ function updateCategory(category, amount){
 
 
 
-<<<<<<< HEAD
-// }); // wrapper
-=======
 window.setTimeout(initialPrompt, 500);
 //}); // wrapper
->>>>>>> e7e3a1aabc463efdf5db5d5f4e0b9ebac0a6362a
