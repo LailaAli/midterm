@@ -1,6 +1,5 @@
 //$(function() {
-//Cursor changes
-$('button').css( 'cursor', 'pointer' );
+
 
 let purchases = [];
 let categories = [];
@@ -50,21 +49,34 @@ $("button#purchase-form-trigger").on("click", function(e){
 });
 
 
-// class="new-purchase" set to display block
 
 //Form Save button validates inputs, hides form, runs next function.
 
-/* $("#purchase-save").on("click", function(e){
-	$(".new-purchase").fadeOut(800);
-}); */
 
-	// check form values, they shouldn't be empty or select
-	$('#purchase-save').click(function(){
-		if($('.purchase-inputs input').val() == ''){
-		   alert('Input can not be left blank');
-		}
-			createNewPurchase();
-	 });
+
+// check form values, they shouldn't be empty or select
+$('#purchase-save').on("click", function(){
+	if($('#purchase-name').val() === '' || $('#purchase-date').val() === '' || $('#purchase-amount').val() === '' || $('#purchase-category').val() === ''){
+		alert('Input can not be left blank');
+		return;
+	}
+		createNewPurchase();
+		$(".new-purchase").fadeOut(800);
+		resetForm();
+});
+
+$("#purchase-cancel").on("click", function(){
+	$(".new-purchase").fadeOut(800);
+	resetForm();
+});
+
+function resetForm (){
+	$("#purchase-name").val("");
+	$("#purchase-date").val("");
+	$("#purchase-amount").val("");
+	$("#purchase-category").val("");
+}
+
 
 	// $("#purchase-save").on("click", function(e){
 	// 	$(".new-purchase").fadeOut(800);
