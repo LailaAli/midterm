@@ -11,20 +11,21 @@
 <content>
 	<div class="container">
 		<div class="budget-bar">
-			<p>Remaining Budget: <span id="remaining">100</span></p>
-			<p>Total Budget: <span id="total"></span></p>
+			<p>Remaining Budget: $<span id="remaining">100</span></p>
+			<p>Total Budget: $<span id="total"></span></p>
 			<meter id="budget" min="0" max="500" low="0" value="375"></meter>
 		</div>
 		<div class="categories">
-			<div class="category entertainment"><p>Entertainment</p><p class="category-amount" id="entertainment-spend">0</p></div>
-			<div class="category food"><p>Food</p><p class="category-amount" id="food-spend">0</p></div>
-			<div class="category clothing"><p>Clothing</p><p class="category-amount" id="clothing-spend">0</p></div>
-			<div class="category bills"><p>Bills</p><p class="category-amount" id="bills-spend">0</p></div>
+			<div class="category entertainment"><p>Entertainment</p><p class="category-amount">$<span id="entertainment-spend">0</span></p></div>
+			<div class="category food"><p>Food</p><p class="category-amount">$<span id="food-spend">0</span></p></div>
+			<div class="category clothing"><p>Clothing</p><p class="category-amount">$<span id="clothing-spend">0</span></p></div>
+			<div class="category bills"><p>Bills</p><p class="category-amount">$<span id="bills-spend">0</span></p></div>
 		</div>
 		<div class="add-new-purchase">
 			<button id="purchase-form-trigger">Add New Purchase</button>
 		</div>
 		<div class="new-purchase">
+			<h3>Add New Purchase</h3>
 			<form class="purchase-inputs">
 				<input id="purchase-name" type="text" placeholder="Enter New Purchase" value="" required/>
 				<input id="purchase-date" type="date" placeholder="Date" value="" required/>
@@ -36,9 +37,7 @@
 					<option value="3">Clothing</option>
 					<option value="1">Entertainment</option>
 				</select>
-				<div id="purchase-btn-save">
-					<button id="purchase-save" class="form-btn" type="button">Save</button>
-				</div>
+				<button id="purchase-save" class="form-btn" type="button">Save</button>
 			</form>
 		</div>
 		<h3>Your Purchases</h3>
