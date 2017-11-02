@@ -101,6 +101,7 @@ meter {
 
 /* purchase box */
 .new-purchase {
+	display: none;
 	position: absolute;
 	top: 95px;
 	left: 50%;
