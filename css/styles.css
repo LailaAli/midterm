@@ -103,6 +103,7 @@ meter {
 	color: white;
 	border: none;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .new-purchase {
@@ -146,6 +147,7 @@ form input, select {
 	color: #333;
 	border: none;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 #purchase-cancel {
@@ -166,6 +168,7 @@ form input, select {
     text-align:center;
     line-height:100%;
     color:#f1f1f1;
+    cursor: pointer;
 }
  
 #purchase-cancel:hover {
