@@ -112,5 +112,32 @@ const updateScreen = function() {
 	$("#bills-spend").text(categories[3].spendAmount);
 };
 
+///////////////////////////////////////////////////////////
+// TEST DATA
+initializeBudget(500);
+let testPurchase = {
+ 		item: "purchaseName",
+ 		date: "purchaseDate",
+ 		amount: 30,
+ 		category: 2
+	};
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+findUpdateCategory(testPurchase);
+
+
+
+///////////////////////////////////////////////////////////
+
 //window.setTimeout(initialPrompt, 500);
 //}); // wrapper
