@@ -1,0 +1,159 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Lato');
+
+/* typography */
+* {
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Roboto Mono", Helvetica, Arial, sans-serif;
+}
+
+input, select, button {
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+/* containers */
+body {
+	min-width: 320px;
+	max-width: 680px;
+	margin: 0px auto;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.budget-bar {
+	position: fixed;
+	width: 100%;
+	background-color: #fff;
+	z-index: 100;
+}
+
+.categories {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-evenly;
+	margin: 110px 0px 0px 0px;
+}
+
+/* budget bar elements */
+meter {
+	width: 100%;
+}
+
+/* categories */
+.category {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 48%;
+	margin: 5px 0px;
+	border-radius: 5px;
+}
+
+.category p {
+	margin: 3px 0px;
+}
+
+.entertainment, .category1 {
+	background-color: #45eac6;
+}
+
+.food, .category2 {
+	background-color: #feb037;
+}
+
+.clothing, .category3 {
+	background-color: #0cc675;
+}
+
+.bills, .category4 {
+	background-color: #167ee6;
+}
+
+/* add new purchase */
+.add-new-purchase {
+	display: flex;
+	justify-content: center;
+}
+
+#purchase-form-trigger {
+	display: flex;
+	justify-content: center;
+	margin: 10px 0px 10px 0px;
+	width: 50%;
+	height: 50px;
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 5px;
+}
+
+/* purchase box */
+
+.new-purchase {
+	display: flex;
+	justify-content: center;
+	padding: 15px;
+	background-color: red;
+	z-index: 200;
+	display: none;
+}
+
+.purchase-inputs {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+form input, select {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.form-btn {
+	display: flex;
+	width: 100%;
+	margin-top: 10px;
+}
+
+/* Your Purchases */
+
+.purchases {
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	background-color: green;
+}
+
+.purchase-detail {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+
+
+
+/* media queries */
+@media only screen and (min-width: 480px) {
+	/* styles for tablet */
+}
+
+@media only screen and (min-width: 768px) {
+	/* styles for notebooks */
+}
+
+@media only screen and (min-width: 992px) {
+	/* styles for desktop */
+}
+
+@media only screen and (min-width: 1200px) {
+	/* styles for large desktop */
+}
