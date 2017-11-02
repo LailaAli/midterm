@@ -56,13 +56,20 @@ $("#purchase-save").on("click", function() {
 ////////////////////////////////////////////////////////////
 
 const createNewPurchase = function() {
-	let purchaseNew = $("#purchase-new").val();
+	let purchaseName = $("#purchase-name").val();
 	let purchaseDate = $("#purchase-date").val();
-	let getpurchaseAmount = $("#purchase-amount").val();
-	let purchaseAmount = parseInt(getpurchaseAmount);
+	let getPurchaseAmount = $("#purchase-amount").val();
+	let purchaseAmount = parseInt(getPurchaseAmount);
 	let getPurchaseCategory = $("#purchase-category").val();
 	let purchaseCategory = parseInt(getPurchaseCategory);
+	let newPurchase = {
+ 		item: purchaseName,
+ 		date: purchaseDate,
+ 		amount: purchaseAmount,
+ 		category: purchaseCategory
+	};
 	findAndAddToCategory(newPurchase);
+	updateBudget(newPurchase);
 	addPurchaseToArray(newPurchase);
 };	
 
@@ -74,6 +81,10 @@ const findAndAddToCategory = function(purchase) {
 };
 
 // deduct purchase amount from total budget
+const updateBudget = function(purchase) {
+	budget.remaining -= purchase.amount;
+};
+
 
 const addPurchaseToArray = function(newPurchase) {
 	purchases.push(newPurchase);
