@@ -8,6 +8,7 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Roboto Mono", Helvetica, Arial, sans-serif;
+	text-align: center;
 }
 
 input, select, button {
@@ -35,6 +36,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	/*add this at screen position 85px or something box-shadow: 0px 0px 30px rgba(0, 0, 0, .5);*/
 }
 
 .categories {
@@ -47,6 +49,10 @@ body {
 }
 
 /* budget bar elements */
+.budget-bar p {
+	margin: 30px 0px 10px 0px;
+}
+
 meter {
 	width: 100%;
 }
@@ -99,7 +105,6 @@ meter {
 	border-radius: 5px;
 }
 
-/* purchase box */
 .new-purchase {
 	display: none;
 	position: absolute;
@@ -120,7 +125,6 @@ meter {
 
 .new-purchase h3 {
 	color: #fff;
-	text-align: center;
 }
 
 .purchase-inputs {
@@ -148,16 +152,25 @@ form input, select {
 .purchases {
 	display: flex;
 	flex-direction: column;
-	padding: 15px;
-	background-color: green;
+	padding: 0px 10px;
 }
 
 .purchase-detail {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin: 5px 0px;
+	border-radius: 5px;
+	height: 30px;
 }
 
+.purchase-detail p {
+	display: flex;
+	margin: 0px 0px;
+
+}
 
 
 

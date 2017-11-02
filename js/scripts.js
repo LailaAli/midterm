@@ -35,7 +35,7 @@ const initializeBudget = function(budgetAmount) {
 	$("#budget")
 		.val(budgetAmount)
 		.attr("max", budgetAmount)
-		.attr("low", (budgetAmount / 10)
+		.attr("low", (budgetAmount / 5)
 	);
 	return budget;
 };
@@ -94,7 +94,7 @@ const updatePurchases = function(newPurchase) {
 		"<div class=\"purchase-detail category" + newPurchase.category + "\">"
 		+"<p class=\"purchase-name\">" + newPurchase.item + "</p>"
 		+"<p class=\"purchase-date\">" + newPurchase.date + "</p>"
-		+"<p class=\"purchase-amount\">" + newPurchase.amount + "</p>"
+		+"<p class=\"purchase-amount\">$" + newPurchase.amount + "</p>"
 		+ "</div>"
 	);
 	updateScreen();
@@ -134,7 +134,7 @@ findUpdateCategory(testPurchase);
 findUpdateCategory(testPurchase);
 findUpdateCategory(testPurchase);
 findUpdateCategory(testPurchase);
-
+findUpdateCategory(testPurchase);
 
 
 ///////////////////////////////////////////////////////////
