@@ -112,5 +112,5 @@ const updateScreen = function() {
 	$("#bills-spend").text(categories[3].spendAmount);
 };
 
-window.setTimeout(initialPrompt, 500);
+//window.setTimeout(initialPrompt, 500);
 //}); // wrapper
