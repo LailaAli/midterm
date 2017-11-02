@@ -25,6 +25,7 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
+	padding: 0px 10px;
 }
 
 .budget-bar {
@@ -54,7 +55,8 @@ body {
 }
 
 meter {
-	width: 100%;
+	width: 85%;
+	max-width: 480px;
 }
 
 /* categories */
@@ -152,24 +154,24 @@ form input, select {
 }
 
 #purchase-cancel {
-    width:30px;
-    height:30px;
-    padding-top:4px;
-    display:inline-block;
-    position:absolute;
-    top:8px;
-    right:8px;
-    transition:ease 0.25s all;
-    -webkit-transform:translate(50%, -50%);
-    transform:translate(50%, -50%);
-    border-radius:1000px;
-    background:rgba(0,0,0,0.8);
-    font-family:Arial, Sans-Serif;
-    font-size:20px;
-    text-align:center;
-    line-height:100%;
-    color:#f1f1f1;
-    cursor: pointer;
+    width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	transition: ease 0.25s all;
+	-webkit-transform: translate(50%, -50%);
+	transform: translate(50%, -50%);
+	border-radius: 1000px;
+	background: rgba(0,0,0,0.8);
+	font-family: Arial, Sans-Serif;
+	font-size: 20px;
+	line-height: 100%;
+	color: #f1f1f1;
+	cursor: pointer;
 }
  
 #purchase-cancel:hover {
@@ -183,7 +185,6 @@ form input, select {
 .purchases {
 	display: flex;
 	flex-direction: column;
-	padding: 0px 10px;
 }
 
 .purchase-detail {
@@ -200,18 +201,49 @@ form input, select {
 .purchase-detail p {
 	display: flex;
 	margin: 0px 0px;
-
 }
 
-
+.purchase-name {
+	flex-grow: 1;
+	max-width: 35%;
+}
 
 /* media queries */
 @media only screen and (min-width: 480px) {
 	/* styles for tablet */
+	meter {
+		max-width: 580px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
 	/* styles for notebooks */
+	.categories {
+		flex-wrap: nowrap;
+	}
+	
+	.category {
+		margin: 5px 2.5px;
+	}
+
+	.budget-bar {
+		width: 85%;
+		padding: 30px 0px;
+		height: 20px;
+	}
+
+	.budget-bar .total {
+		order: 300;
+	}
+
+	.budget-bar p {
+		margin: 0px
+	}
+
+	meter {
+		max-width: 320px;
+		order: 200;
+	}
 }
 
 @media only screen and (min-width: 992px) {
