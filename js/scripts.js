@@ -37,7 +37,6 @@ $(function() {
 			.attr("max", budgetAmount)
 			.attr("low", (budgetAmount / 5)
 		);
-		return budget;
 	};
 
 	$("button#purchase-form-trigger").on("click", function(e){
@@ -92,6 +91,9 @@ $(function() {
 
 	const updateBudget = function(newPurchase) {
 		budget.remaining -= newPurchase.amount;
+		if (budget.remaining <= 0) {
+			alert("You've spent your budget, no more buying!!");
+		}
 		addPurchaseToArray(newPurchase);
 	};
 
@@ -114,9 +116,6 @@ $(function() {
 	const updateScreen = function() {
 		$("#remaining").text(budget.remaining);
 		$("#budget").val(budget.remaining);
-		if (budget.remaining <= 0) {
-			alert("You've spent your budget, no more buying!!");
-		} 
 		$("#entertainment-spend").text(categories[0].spendAmount);
 		$("#food-spend").text(categories[1].spendAmount);
 		$("#clothing-spend").text(categories[2].spendAmount);
