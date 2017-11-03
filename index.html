@@ -11,9 +11,9 @@
 <content>
 	<div class="container">
 		<div class="budget-bar">
-			<p class="remaining">Remaining Budget: $<span id="remaining">100</span></p>
-			<p class="total">Total Budget: $<span id="total"></span></p>
-			<meter id="budget" min="0" max="500" low="0" value="375"></meter>
+			<p class="remaining">Remaining Budget: $<span id="remaining">200</span></p>
+			<p class="total">Total Budget: $<span id="total">300</span></p>
+			<meter id="budget" min="0" max="300" low="0" value="200"></meter>
 		</div>
 		<div class="categories">
 			<div class="category entertainment"><p>Entertainment</p><p class="category-amount">$<span id="entertainment-spend">0</span></p></div>
@@ -32,7 +32,7 @@
 				<input id="purchase-date" type="date" placeholder="Date" value="" required/>
 				<input id="purchase-amount" type="number" placeholder="Purchase Amount $" min="0.01" step="0.01" max="2500" value="" required/>
 				<select id="purchase-category" type="" placeholder="Category" value="" required>
-					<option id="option-select" value="">Select</option>
+					<option id="option-select" value="">Purchase Category</option>
 					<option value="2">Food</option>
 					<option value="4">Bills</option>
 					<option value="3">Clothing</option>
